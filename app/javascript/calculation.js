@@ -6,7 +6,7 @@ function calculation (){
     const profit = document.getElementById("profit")
     const commission = Math.floor(priceValue * 0.1);
     addTaxPrice.innerHTML = commission;
-    profit.innerHTML = priceValue - commission;
+    profit.innerHTML = Math.floor(priceValue - commission);
   });
 };
 
