@@ -131,9 +131,10 @@
       <% unless @items.blank? then %>
         <% @items.each do |item| %>
         <li class='list'>
+          <%= link_to "#" do %>
           <div class="list-inner">
             <div class='item-img-content'>
-              <%= link_to image_tag(item.image, class: "item-img"), "#" %>
+              <%= image_tag item.image, class: "item-img" %>
               <%# 商品が売れていればsold outを表示しましょう %>
               <div class='sold-out'>
                 <span>Sold Out!!</span>
@@ -153,6 +154,7 @@
               </div>
             </div>
           </div>
+          <% end %>
         </li>
         <% end %>
       <% else %>
