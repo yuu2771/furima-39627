@@ -248,6 +248,8 @@ a {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
+  display: flex;
+  justify-content: center;
 }
 
 
