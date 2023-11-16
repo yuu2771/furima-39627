@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @orders_with_item_id = Order.where(item_id: @item.id)
   end
 
   def edit
