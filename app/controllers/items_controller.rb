@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :orders_with_item_id, only: [:show, :edit]
 
   def index
     @items = Item.all.order("created_at DESC")
+    @orders = Order.all
   end
 
   def new
@@ -25,7 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @item.user.id
+    unless user_signed_in? && current_user.id == @item.user.id && @orders_with_item_id.blank?
       redirect_to action: :index
     end
   end
@@ -50,6 +52,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def orders_with_item_id
+    @orders_with_item_id = Order.where(item_id: @item.id)
   end
 
   def item_params
