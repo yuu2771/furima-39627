@@ -27,7 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @item.user.id && @orders_with_item_id.blank?
+    unless user_signed_in? 
+      redirect_to new_user_session_path
+      return
+    end
+    if current_user.id == @item.user.id || @orders_with_item_id.exists?
       redirect_to action: :index
     end
   end
