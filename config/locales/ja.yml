@@ -3,10 +3,10 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
-        last_name: お名前（全角）_苗字
-        first_name: お名前（全角）_名前
-        last_name_furigana: お名前カナ（全角）_苗字
-        first_name_furigana: お名前カナ（全角）_名前
+        last_name: 名字
+        first_name: 名前
+        last_name_furigana: 名字カナ
+        first_name_furigana: 名前カナ
         birthday: 生年月日
       item:
         image: 商品画像
@@ -28,4 +28,7 @@ ja:
         house_number: 番地
         phone_number: 電話番号
         token: クレジットカード情報
+  errors:
+    messages:
+      not_a_number: は半角数値で入力してください
 
